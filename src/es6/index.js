@@ -80,3 +80,89 @@ console.log(globalVar);
 const a = 'b';
 a = 'a';
 console.log(a);
+
+let name = 'Camilo';
+let age = 24;
+ 
+//es5
+obj = { name: name, age: age };
+//es6
+obj2 = {name, age};
+console.log(obj2);
+
+//Arrow function
+
+const names32 = [
+    {name = 'Camilo', age = 24}
+]
+
+//es5
+let listOfNames = names32.map(function(item){
+    console.log(item.name)
+});
+
+//es6
+let listOfNames2 = names.map(item => console.log(item.name));
+
+const listOfNames3 = (name, age) => {
+   // ...
+}
+
+const listOfNames4 = name => {
+    // ...
+}
+
+const square = num => num * num;
+
+
+//promesas en algun momento va suceder algo
+
+const helloPromise = () => {
+    return new Promise((resolve, reject) => {
+        if(true){
+            resolve('Hey!')
+        }else{
+            reject('Algo Salio mal')
+        }
+    });
+}
+
+helloPromise()
+.then(Response => console.log(Response))
+.catch(error => console.log(error));
+
+// Clases 
+class calculator {
+    constructor(){
+        this.valueA = 0;
+        this.valueB = 0;
+    }
+    sum(valueA, valueB){
+        this.valueA = valueA;
+        this.valueB = valueB;
+        return valueA + valueB;
+    }
+}
+
+const calc = new calculator();
+console.log(calc.sum(2,2));
+
+// Trabajar con modulos
+import { hello } from "./module.js";
+
+const hola = hello;
+console.log(hola);
+
+function* helloWorld(){
+    if(true){
+        yield 'Hello! ';
+    }
+    if(true){
+        yield 'World ';
+    }
+};
+
+const generatorHello = helloWorld();
+console.log(generatorHello.next().value);
+console.log(generatorHello.next().value);
+console.log(generatorHello.next().value);
